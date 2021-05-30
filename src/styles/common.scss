@@ -1,0 +1,170 @@
+@import '@/styles/base.scss';
+
+body {
+  color: $color-base;
+  font-size: $fontsize-base;
+  background: $background-color;
+  input {
+    font-size: $fontsize-base;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-v-center {
+  align-items: center;
+}
+
+.nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+/** 文字处理 **/
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.color-base {
+  color: $color-base;
+}
+
+.color-gray {
+  color: $color-grey;
+}
+
+.blod {
+  font-weight: bold;
+}
+
+.font-nowrap {
+  white-space: nowrap;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+.modal-over {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.img-cover {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+$sizeList: 0, 2, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 35, 38, 40, 42, 44, 48, 50, 54, 58, 60, 78,
+  80, 100, 120;
+
+@each $size in $sizeList {
+  .w-#{$size} {
+    width: #{$size}px;
+  }
+
+  .h-#{$size} {
+    height: #{$size}px;
+  }
+
+  .m-#{$size} {
+    margin: #{$size}px;
+  }
+
+  .m-t-#{$size} {
+    margin-top: #{$size}px;
+  }
+
+  .m-l-#{$size} {
+    margin-left: #{$size}px;
+  }
+
+  .m-b-#{$size} {
+    margin-bottom: #{$size}px;
+  }
+
+  .m-r-#{$size} {
+    margin-right: #{$size}px;
+  }
+
+  .p-#{$size} {
+    padding: #{$size}px;
+  }
+
+  .p-t-#{$size} {
+    padding-top: #{$size}px;
+  }
+
+  .p-l-#{$size} {
+    padding-left: #{$size}px;
+  }
+
+  .p-b-#{$size} {
+    padding-bottom: #{$size}px;
+  }
+
+  .p-r-#{$size} {
+    padding-right: #{$size}px;
+  }
+}
+
+/** 文字处理 **/
+$fontList: 12, 14, 16, 18, 20, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 48, 50, 54, 58, 60, 100;
+
+@each $fontSize in $fontList {
+  .text-#{$fontSize} {
+    font-size: #{$fontSize}px;
+  }
+
+  .l-h-#{$fontSize} {
+    line-height: #{$fontSize}px;
+  }
+}

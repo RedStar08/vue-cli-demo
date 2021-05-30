@@ -1,0 +1,53 @@
+// 文字相关
+$fontsize-base: 14px;
+
+$color-base: #333; //基本色
+$color-grey: #999; //辅助灰色，如加载更多的提示信息
+$color-placeholder: #808080;
+$color-disable: #c0c0c0;
+$color-primary: #409eff;
+$color-success: #67c23a;
+$color-warning: #e6a23c;
+$color-error: #f56c6c;
+
+// 背景颜色
+$background-color: #f6f7f9;
+// 默认主题颜色
+$theme-color: #af2930;
+// 西瓜红
+$theme-color-red: #fa541c;
+// 活力橙
+$theme-color-orange: #fa8c16;
+// 柠檬青
+$theme-color-green: #a0d911;
+// 云韵青
+$theme-color-cyan: #7cebe4;
+// 天空蓝
+$theme-color-blue: #3f9ff5;
+// 葡萄紫
+$theme-color-purple: #673ab7;
+// 玫瑰粉
+$theme-color-pink: #cf5191;
+// 酷冷黑
+$theme-color-black: #272822;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style-type: none;
+}
+
+a {
+  outline: 0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}

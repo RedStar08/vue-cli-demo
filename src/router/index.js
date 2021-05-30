@@ -1,30 +1,46 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import axios from 'axios'
+import { token } from '@/config'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
+// 获取各个路由模块
+const routerContext = require.context('./modules', true, /\.js$/)
+const routeList = routerContext.keys().reduce((prev, next) => {
+  prev = [...prev, ...(routerContext(next).default || routerContext(next))]
+  return prev
+}, [])
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: '/',
+    name: 'root',
+    redirect: '/home',
   },
+  ...routeList,
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    path: '*',
+    name: 'NotFound',
+    component: () => import('@/views/NotFound'),
   },
-];
+]
 
+// 配置路由
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
   routes,
-});
+})
 
-export default router;
+router.beforeEach((to, from, next) => {
+  if (axios.defaultSource) {
+    axios.defaultSource.cancel('路由切换，取消请求')
+  }
+  // 刷新 defaultSource
+  axios.defaultSource = axios.CancelToken.source()
+  // 业务逻辑
+  if (to.path !== '/login' && !token) return next('/login')
+  next()
+})
+
+export default router
