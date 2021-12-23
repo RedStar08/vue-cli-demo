@@ -8,8 +8,10 @@
 export default {
   name: 'Empty',
   props: {
-    msg: String,
-    default: '暂无数据',
+   msg: {
+      type: String,
+      default: '暂无数据',
+    },
   },
 }
 </script>
